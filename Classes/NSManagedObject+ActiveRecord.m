@@ -412,7 +412,7 @@
             value = [NSNumber numberWithDouble:[value doubleValue]];
 
         else if (attributeType == NSDateAttributeType)
-            value = [self.defaultFormatter dateFromString:value];
+            value = [[NSManagedObject defaultFormatter] dateFromString:value];
     }
 
     [self setPrimitiveValue:value forKey:key];
@@ -426,7 +426,7 @@
 
 #pragma mark - Date Formatting
 
-- (NSDateFormatter *)defaultFormatter {
++ (NSDateFormatter *)defaultFormatter {
     static NSDateFormatter *sharedFormatter;
     static dispatch_once_t singletonToken;
     dispatch_once(&singletonToken, ^{

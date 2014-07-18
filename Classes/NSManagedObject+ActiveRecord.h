@@ -86,4 +86,8 @@
 
 + (NSString *)entityName;
 
+#pragma mark - Date Formatting
+
++ (NSDateFormatter *)defaultFormatter;
+
 @end
